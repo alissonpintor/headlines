@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Headlines</title>
+    <style>
+      div.container{
+          margin: 0 auto;
+          width: 70%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Headlines</h1>
+      {% for article in articles %}
+        <b><a href="{{article.link}}">{{article.title}}</a></b><br />
+        <i>{{article.published}}</i><br />
+        <p>{{article.summary}}</p>
+        <hr />
+      {% endfor %}
+    </div>
+  </body>
+</html>
