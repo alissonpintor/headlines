@@ -6,17 +6,30 @@
     <style>
       div.container{
           margin: 0 auto;
+          padding: 5px;
           width: 70%;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+      }
+      img{
+        width: 70%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Headlines</h1>
+      <h1>Headlines <small><i>Your IP: {{client_ip}}</i></small></h1>
+      <form>
+        <input type="text" name="publication" placeholder="search" />
+        <input type="submit" value="Submit" />
+      </form> <br />
       {% for article in articles %}
         <b><a href="{{article.link}}">{{article.title}}</a></b><br />
         <i>{{article.published}}</i><br />
-        <p>{{article.summary}}</p>
+        <p>{{article.summary|safe}}</p>
         <hr />
       {% endfor %}
     </div>
